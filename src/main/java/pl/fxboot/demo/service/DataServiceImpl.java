@@ -8,6 +8,7 @@ import pro.xstore.api.message.error.APICommunicationException;
 import pro.xstore.api.message.error.APIReplyParseException;
 import pro.xstore.api.message.response.APIErrorResponse;
 import pro.xstore.api.message.response.SymbolResponse;
+
 import java.time.*;
 
 @Service
@@ -18,7 +19,7 @@ public class DataServiceImpl implements DataService {
     @Override
     public Double getAskPrice(String symbol) {
         Double askPrice;
-        askPrice =  getResponse(symbol).getSymbol().getAsk();
+        askPrice = getResponse(symbol).getSymbol().getAsk();
         return askPrice;
     }
 
@@ -62,9 +63,9 @@ public class DataServiceImpl implements DataService {
         return readableDate;
     }
     //auxiliary method
-    private SymbolResponse getResponse(String symbol){
+    private SymbolResponse getResponse(String symbol) {
         try {
-            response = APICommandFactory.executeSymbolCommand(service.establishConnection(),symbol);
+            response = APICommandFactory.executeSymbolCommand(service.establishConnection(), symbol);
         } catch (APICommandConstructionException | APICommunicationException | APIErrorResponse | APIReplyParseException e) {
             e.printStackTrace();
         }
