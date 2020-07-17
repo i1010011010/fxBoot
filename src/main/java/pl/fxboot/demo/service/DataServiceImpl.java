@@ -65,6 +65,7 @@ public class DataServiceImpl implements DataService {
     //auxiliary method
     private SymbolResponse getResponse(String symbol) {
         try {
+
             response = APICommandFactory.executeSymbolCommand(service.establishConnection(), symbol);
         } catch (APICommandConstructionException | APICommunicationException | APIErrorResponse | APIReplyParseException e) {
             e.printStackTrace();

@@ -41,7 +41,9 @@ public class ServerConnectionService {
 
     public SyncAPIConnector establishStreamConnection(StreamingListener listener) {
         try {
-            connector.connectStream(listener);
+            if(!connector.isStreamConnected()) {
+                connector.connectStream(listener);
+            }
         } catch (IOException | APICommunicationException e) {
             e.printStackTrace();
         }
