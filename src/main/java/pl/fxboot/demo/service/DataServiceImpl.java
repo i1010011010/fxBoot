@@ -8,8 +8,8 @@ import pro.xstore.api.message.error.APICommunicationException;
 import pro.xstore.api.message.error.APIReplyParseException;
 import pro.xstore.api.message.response.APIErrorResponse;
 import pro.xstore.api.message.response.SymbolResponse;
-
 import java.time.*;
+
 @Service
 public class DataServiceImpl implements DataService {
     private SymbolResponse response;
@@ -61,7 +61,7 @@ public class DataServiceImpl implements DataService {
                 .toLocalDateTime().toString();
         return readableDate;
     }
-
+    //auxiliary method
     private SymbolResponse getResponse(String symbol){
         try {
             response = APICommandFactory.executeSymbolCommand(service.establishConnection(),symbol);

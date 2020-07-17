@@ -1,39 +1,46 @@
 package pl.fxboot.demo.service;
+
 import org.springframework.stereotype.Service;
 import pl.fxboot.demo.serverconnection.ServerConnectionService;
 import pl.fxboot.demo.streamlistenerimpl.TickAsk;
+import pl.fxboot.demo.streamlistenerimpl.TickBid;
+import pl.fxboot.demo.streamlistenerimpl.TickTimestamp;
+import pl.fxboot.demo.streamlistenerimpl.TickTimestampFormattedToDate;
 import pro.xstore.api.message.error.APICommunicationException;
-import java.io.IOException;
-
+import pro.xstore.api.streaming.StreamingListener;
 
 @Service
-public class StreamDataServiceImpl extends ServerConnectionService {
+public class StreamDataServiceImpl implements StreamDataService {
 
+    ServerConnectionService service = new ServerConnectionService();
 
-    public StreamDataServiceImpl(ServerConnectionService connectionService) {
-    }
-
-    public StreamDataServiceImpl() {
-
-    }
-
-//zła metoda
+    @Override
     public void getStreamAskPrice(String symbol) {
+        getStream(symbol,new TickAsk());
+    }
+
+    @Override
+    public void getStreamBidPrice(String symbol) {
+        getStream(symbol,new TickBid());
+    }
+
+    @Override
+    public void getSymbolTimestamp(String symbol) {
+        getStream(symbol,new TickTimestamp());
+    }
+
+    @Override
+    public void getSymbolTimestampFormatted(String symbol) {
+        getStream(symbol,new TickTimestampFormattedToDate());
+    }
+
+    //auxiliary method
+    private void getStream(String symbol, StreamingListener listener) {
         try {
-            establishConnection().connectStream(new TickAsk());
-            establishConnection().subscribePrice(symbol);
-        } catch (IOException e) {
-            e.printStackTrace();
+            service.establishStreamConnection(listener).subscribePrice(symbol);
         } catch (APICommunicationException e) {
             e.printStackTrace();
         }
-
-
-    }
-
-
-
-    public void getStreamBidPrice(String symbol) {
-        //Metoda jeszcze niebsłużona
     }
 }
+

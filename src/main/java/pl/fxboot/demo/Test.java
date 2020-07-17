@@ -13,18 +13,21 @@ public class Test {
         //service.establishConnection();
 
         System.out.println("Ask -> " + dataServiceImpl.getAskPrice("EURUSD"));
-//
-//        System.out.println("Bid -> " + dataServiceImpl.getBidPrice("DE30"));
-//
-//        System.out.println("High -> " + dataServiceImpl.getHighPrice("DE30"));
-//
-//        System.out.println("Low -> " + dataServiceImpl.getLowPrice("DE30"));
-//
-//        System.out.println("Epoch Time -> " + dataServiceImpl.getSymbolEpochTime("DE30") + " ms");
-//
-//        System.out.println("Date -> " + dataServiceImpl.getSymbolDateTime("DE30"));
-//
-//        streamDataServiceImpl.getStreamAskPrice("EURUSD");
+
+        System.out.println("Bid -> " + dataServiceImpl.getBidPrice("DE30"));
+
+        System.out.println("High -> " + dataServiceImpl.getHighPrice("DE30"));
+
+        System.out.println("Low -> " + dataServiceImpl.getLowPrice("DE30"));
+
+        System.out.println("Epoch Time -> " + dataServiceImpl.getSymbolEpochTime("DE30") + " ms");
+
+        System.out.println("Date -> " + dataServiceImpl.getSymbolDateTime("DE30"));
+
+        //streamDataServiceImpl.getStreamAskPrice("EURUSD");
+        //streamDataServiceImpl.getStreamBidPrice("EURUSD");
+      // streamDataServiceImpl.getSymbolTimestamp("EURUSD");
+       streamDataServiceImpl.getSymbolTimestampFormatted("EURUSD");
 
     }
 
