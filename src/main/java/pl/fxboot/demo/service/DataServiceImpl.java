@@ -12,86 +12,62 @@ import pro.xstore.api.message.response.SymbolResponse;
 import java.time.*;
 @Service
 public class DataServiceImpl implements DataService {
+    private SymbolResponse response;
     private ServerConnectionService service = new ServerConnectionService();
 
     @Override
     public Double getAskPrice(String symbol) {
-        Double askPrice = 0D;
-        try {
-            SymbolResponse symbolResponse = APICommandFactory.executeSymbolCommand(service.establishConnection(), symbol);
-            askPrice = symbolResponse.getSymbol().getAsk();
-        } catch (APICommandConstructionException | APICommunicationException | APIErrorResponse | APIReplyParseException e) {
-            e.printStackTrace();
-        }
+        Double askPrice;
+        askPrice =  getResponse(symbol).getSymbol().getAsk();
         return askPrice;
     }
 
     @Override
     public Double getBidPrice(String symbol) {
-        Double bidPrice = 0D;
-
-        try {
-            SymbolResponse symbolResponse = APICommandFactory.executeSymbolCommand(service.establishConnection(), symbol);
-            bidPrice = symbolResponse.getSymbol().getBid();
-        } catch (APICommandConstructionException | APICommunicationException | APIErrorResponse | APIReplyParseException e) {
-            e.printStackTrace();
-        }
+        Double bidPrice;
+        bidPrice = getResponse(symbol).getSymbol().getBid();
         return bidPrice;
     }
 
     @Override
     public Double getHighPrice(String symbol) {
-        Double highPrice = 0D;
-
-        try {
-            SymbolResponse symbolResponse = APICommandFactory.executeSymbolCommand(service.establishConnection(), symbol);
-            highPrice = symbolResponse.getSymbol().getHigh();
-        } catch (APICommandConstructionException | APICommunicationException | APIErrorResponse | APIReplyParseException e) {
-            e.printStackTrace();
-        }
+        Double highPrice;
+        highPrice = getResponse(symbol).getSymbol().getHigh();
         return highPrice;
-
     }
 
     @Override
     public Double getLowPrice(String symbol) {
-        Double lowPrice = 0D;
-
-        try {
-            SymbolResponse symbolResponse = APICommandFactory.executeSymbolCommand(service.establishConnection(), symbol);
-            lowPrice = symbolResponse.getSymbol().getLow();
-        } catch (APICommandConstructionException | APICommunicationException | APIErrorResponse | APIReplyParseException e) {
-            e.printStackTrace();
-        }
+        Double lowPrice;
+        lowPrice = getResponse(symbol).getSymbol().getLow();
         return lowPrice;
 
     }
 
     @Override
     public Long getSymbolEpochTime(String symbol) {
-        Long symbolEpochTime = 0L;
-        try {
-            SymbolResponse symbolResponse = APICommandFactory.executeSymbolCommand(service.establishConnection(), symbol);
-            symbolEpochTime = symbolResponse.getSymbol().getTime();
-        } catch (APICommandConstructionException | APICommunicationException | APIErrorResponse | APIReplyParseException e) {
-            e.printStackTrace();
-        }
+        Long symbolEpochTime;
+        symbolEpochTime = getResponse(symbol).getSymbol().getTime();
         return symbolEpochTime;
     }
 
     @Override
     public String getSymbolDateTime(String symbol) {
-        String readableDate = "";
+        String readableDate;
+        Long symbolEpochTime = getResponse(symbol).getSymbol().getTime();
+        readableDate = Instant
+                .ofEpochMilli(symbolEpochTime)
+                .atZone(ZoneId.systemDefault())
+                .toLocalDateTime().toString();
+        return readableDate;
+    }
+
+    private SymbolResponse getResponse(String symbol){
         try {
-            SymbolResponse symbolResponse = APICommandFactory.executeSymbolCommand(service.establishConnection(), symbol);
-            Long symbolEpochTime = symbolResponse.getSymbol().getTime();
-            readableDate = Instant
-                    .ofEpochMilli(symbolEpochTime)
-                    .atZone(ZoneId.systemDefault())
-                    .toLocalDateTime().toString();
+            response = APICommandFactory.executeSymbolCommand(service.establishConnection(),symbol);
         } catch (APICommandConstructionException | APICommunicationException | APIErrorResponse | APIReplyParseException e) {
             e.printStackTrace();
         }
-        return readableDate;
+        return response;
     }
 }
