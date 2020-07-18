@@ -3,7 +3,7 @@ package pl.fxboot.demo.service.interfaces;
 import java.util.List;
 import java.util.Set;
 
-public interface FindService  {
+public interface FindService {
 
     List<String> findAllSymbolsNames();
 
@@ -14,6 +14,4 @@ public interface FindService  {
     List<String> findSymbolsByCategory(String category);
 
     List<String> findSymbolsByGroup(String group);
-
-    List<Double> getTickPricesRecord(List<String> symbols, Long timestamp);
 }

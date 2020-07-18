@@ -6,7 +6,7 @@ import pro.xstore.api.streaming.StreamingListener;
 public class TickBid extends StreamingListener {
     @Override
     public void receiveTickRecord(STickRecord tickRecord) {
-        if(tickRecord.getLevel()==0){
+        if (tickRecord.getLevel() == 0) {
             System.out.println(tickRecord.getBid());
         }
     }

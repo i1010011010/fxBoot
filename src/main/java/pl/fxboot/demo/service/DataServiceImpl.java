@@ -6,7 +6,6 @@ import pl.fxboot.demo.service.interfaces.DataService;
 
 import java.time.*;
 
-@Service
 public class DataServiceImpl implements DataService {
 
     @Override
@@ -56,7 +55,9 @@ public class DataServiceImpl implements DataService {
     @Override
     public Long getExpiration(String symbol) {
         Long expiration = ResponseService.getSymbolResponse(symbol).getSymbol().getExpiration();
-        if (expiration == null) { return 0L; }
+        if (expiration == null) {
+            return 0L;
+        }
         return expiration;
     }
 

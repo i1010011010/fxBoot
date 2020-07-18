@@ -3,7 +3,6 @@ package pl.fxboot.demo.service;
 import pl.fxboot.demo.service.auxiliaryservice.ResponseService;
 import pl.fxboot.demo.service.interfaces.FindService;
 import pro.xstore.api.message.records.SymbolRecord;
-import pro.xstore.api.message.records.TickRecord;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -51,13 +50,5 @@ public class FindServiceImpl implements FindService {
             }
         }
         return groupList;
-    }
-
-    public List<Double> getTickPricesRecord(List<String> symbols, Long timestamp) {
-        List<Double> tickList = new ArrayList<>();
-        for (TickRecord record : ResponseService.getTickPricesResponse(symbols, timestamp).getTicks()) {
-            tickList.add(record.getAsk());
-        }
-        return tickList;
     }
 }

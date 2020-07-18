@@ -1,6 +1,5 @@
 package pl.fxboot.demo.serverconnection;
 
-
 import pl.fxboot.demo.model.ServerConnectionModel;
 import pro.xstore.api.message.command.APICommandFactory;
 import pro.xstore.api.message.error.APICommandConstructionException;
@@ -11,7 +10,6 @@ import pro.xstore.api.streaming.StreamingListener;
 import pro.xstore.api.sync.Credentials;
 import pro.xstore.api.sync.ServerData;
 import pro.xstore.api.sync.SyncAPIConnector;
-
 import java.io.IOException;
 
 public class ServerConnectionService {

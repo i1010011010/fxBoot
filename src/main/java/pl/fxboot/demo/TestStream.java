@@ -25,7 +25,7 @@ public class TestStream {
     }
 
     //auxiliary method
-    public void getMassiveStreamData(){
+    public void getMassiveStreamData() {
         streamDataServiceImpl.getStreamAskPrice("EURUSD");
         streamDataServiceImpl.getStreamBidPrice("EURUSD");
         streamDataServiceImpl.getStreamAskPrice("DE30");
@@ -462,7 +462,6 @@ public class TestStream {
         streamDataServiceImpl.getStreamBidPrice("OIL");
         streamDataServiceImpl.getStreamAskPrice("OIL.WTI");
         streamDataServiceImpl.getStreamBidPrice("OIL.WTI");
-
 
 
     }

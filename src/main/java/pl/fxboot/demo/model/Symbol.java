@@ -3,8 +3,11 @@ package pl.fxboot.demo.model;
 public class Symbol {
 
     private String symbol;
+
     private Double askPrice;
+
     private Double bidPrice;
+
 
     public Symbol() {
     }

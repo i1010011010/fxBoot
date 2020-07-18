@@ -8,8 +8,8 @@ public interface DataService {
 
     Double getBidPrice(String symbol);
 
-    String getCategoryName(String symbol)
-            ;
+    String getCategoryName(String symbol);
+
     Long getContractSize(String symbol);
 
     String getSymbolCurrency(String symbol);
@@ -20,7 +20,7 @@ public interface DataService {
 
     Long getExpiration(String symbol);
 
-    String getGroupName (String symbol);
+    String getGroupName(String symbol);
 
     Double getHighPrice(String symbol);
 
