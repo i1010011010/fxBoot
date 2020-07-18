@@ -1,4 +1,4 @@
-package pl.fxboot.demo.streamlistenerimpl;
+package pl.fxboot.demo.service.streamlistenerimpl;
 
 import pro.xstore.api.message.records.STickRecord;
 import pro.xstore.api.streaming.StreamingListener;

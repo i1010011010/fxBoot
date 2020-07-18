@@ -1,4 +1,4 @@
-package pl.fxboot.demo.service;
+package pl.fxboot.demo.service.interfaces;
 
 public interface StreamDataService {
 

@@ -1,46 +1,36 @@
 package pl.fxboot.demo.service;
 
 import org.springframework.stereotype.Service;
-import pl.fxboot.demo.serverconnection.ServerConnectionService;
-import pl.fxboot.demo.streamlistenerimpl.TickAsk;
-import pl.fxboot.demo.streamlistenerimpl.TickBid;
-import pl.fxboot.demo.streamlistenerimpl.TickTimestamp;
-import pl.fxboot.demo.streamlistenerimpl.TickTimestampFormattedToDate;
-import pro.xstore.api.message.error.APICommunicationException;
-import pro.xstore.api.streaming.StreamingListener;
+import pl.fxboot.demo.service.auxiliaryservice.ResponseService;
+import pl.fxboot.demo.service.interfaces.StreamDataService;
+import pl.fxboot.demo.service.streamlistenerimpl.*;
 
 @Service
 public class StreamDataServiceImpl implements StreamDataService {
-
-    ServerConnectionService service = new ServerConnectionService();
+    DataServiceImpl initialValue = new DataServiceImpl();
 
     @Override
     public void getStreamAskPrice(String symbol) {
-        getStream(symbol,new TickAsk());
+        System.out.println(initialValue.getAskPrice(symbol));//initial price
+        ResponseService.getStreamResponse(symbol, new TickAsk());
     }
 
     @Override
     public void getStreamBidPrice(String symbol) {
-        getStream(symbol,new TickBid());
+        System.out.println(initialValue.getBidPrice(symbol));//initial price
+        ResponseService.getStreamResponse(symbol, new TickBid());
     }
 
     @Override
     public void getSymbolTimestamp(String symbol) {
-        getStream(symbol,new TickTimestamp());
+        System.out.println(initialValue.getSymbolEpochTime(symbol));//initial price
+        ResponseService.getStreamResponse(symbol, new TickTimestamp());
     }
 
     @Override
     public void getSymbolTimestampFormatted(String symbol) {
-        getStream(symbol,new TickTimestampFormattedToDate());
-    }
-
-    //auxiliary method
-    private void getStream(String symbol, StreamingListener listener) {
-        try {
-            service.establishStreamConnection(listener).subscribePrice(symbol);
-        } catch (APICommunicationException e) {
-            e.printStackTrace();
-        }
+        System.out.println(initialValue.getSymbolDateTime(symbol));//initial price
+        ResponseService.getStreamResponse(symbol, new TickTimestampFormattedToDate());
     }
 }
 
