@@ -1,5 +1,6 @@
 package pl.fxboot.demo.service.auxiliaryservice;
 
+import org.springframework.stereotype.Component;
 import pl.fxboot.demo.serverconnection.ServerConnectionService;
 import pro.xstore.api.message.codes.PERIOD_CODE;
 import pro.xstore.api.message.command.APICommandFactory;
@@ -10,7 +11,7 @@ import pro.xstore.api.message.response.*;
 import pro.xstore.api.streaming.StreamingListener;
 
 import java.util.List;
-
+@Component
 public class ResponseService {
 
     private static ChartResponse chartResponse;

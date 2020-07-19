@@ -34,6 +34,7 @@ public class FindServiceImpl implements FindService {
 
     public List<String> findSymbolsByCategory(String category) {
         List<String> categoryList = new ArrayList<>();
+        category = category.toUpperCase();
         for (SymbolRecord record : ResponseService.getAllSymbolsResponse().getSymbolRecords()) {
             if (record.getCategoryName().equals(category)) {
                 categoryList.add(record.getSymbol());
@@ -44,6 +45,7 @@ public class FindServiceImpl implements FindService {
 
     public List<String> findSymbolsByGroup(String group) {
         List<String> groupList = new ArrayList<>();
+        group = group.toUpperCase();
         for (SymbolRecord record : ResponseService.getAllSymbolsResponse().getSymbolRecords()) {
             if (record.getGroupName().equals(group)) {
                 groupList.add(record.getSymbol());

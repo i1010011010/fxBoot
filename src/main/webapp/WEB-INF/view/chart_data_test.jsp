@@ -4,8 +4,9 @@
 <head>
 <body>
 <h3>Symbol: ${symbol}</h3>
-<h3>AskPrice: ${ask}</h3>
-<h3>BidPrice: ${bid}</h3>
+<h3>X coordinates: ${yPoints}</h3>
+<h3>Y coordinates: ${xPoints}</h3>
+<h3>Range: ${range}</h3>
 <br><br>
 
 

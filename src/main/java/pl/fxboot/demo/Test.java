@@ -8,8 +8,7 @@ public class Test {
 
     public static void main(String[] args) {
         dataServiceImpl = new DataServiceImpl();
-        Test test = new Test();
-        String testSymbol = "GOLD";
+        String testSymbol = "DE30";
 
 //-------------------------------Tests--------------------------------------------------------------
         System.out.println("Ask -> " + dataServiceImpl.getSymbolName(testSymbol));//pass
@@ -24,7 +23,7 @@ public class Test {
 
         System.out.println("Symbol Currency -> " +dataServiceImpl.getSymbolCurrency(testSymbol));//pass
 
-        System.out.println("Symbol Curreny Pair -> "+dataServiceImpl.getSymbolCurrencyPair(testSymbol));//pass
+        System.out.println("Symbol Currency Pair -> "+dataServiceImpl.getSymbolCurrencyPair(testSymbol));//pass
 
         System.out.println("Description -> "+dataServiceImpl.getDescription(testSymbol));//pass
 
@@ -32,9 +31,9 @@ public class Test {
 
         System.out.println("Group Name -> "+dataServiceImpl.getGroupName(testSymbol));//pass
 
-        System.out.println("High -> " + dataServiceImpl.getHighPrice("DE30"));//pass
+        System.out.println("High -> " + dataServiceImpl.getHighPrice(testSymbol));//pass
 
-        System.out.println("Low -> " + dataServiceImpl.getLowPrice("DE30"));//pass
+        System.out.println("Low -> " + dataServiceImpl.getLowPrice(testSymbol));//pass
 
         System.out.println("Epoch Time -> " + dataServiceImpl.getSymbolEpochTime("DE30") + " ms");//pass
 

@@ -12,7 +12,7 @@ public class TestFindMethods {
 
         System.out.println(findService.findAllCategories());//pass
 
-        System.out.println(findService.findSymbolsByCategory("FX"));//pass
+        System.out.println(findService.findSymbolsByCategory("fx"));//pass
 
         System.out.println(findService.findAllGroups());//pass
 

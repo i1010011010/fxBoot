@@ -6,6 +6,7 @@ import pl.fxboot.demo.service.interfaces.DataService;
 
 import java.time.*;
 
+@Service
 public class DataServiceImpl implements DataService {
 
     @Override
