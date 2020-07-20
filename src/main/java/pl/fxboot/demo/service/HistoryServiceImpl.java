@@ -1,6 +1,5 @@
 package pl.fxboot.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.fxboot.demo.service.auxiliaryservice.ResponseService;
 import pl.fxboot.demo.service.interfaces.HistoryService;
@@ -63,7 +62,7 @@ public class HistoryServiceImpl implements HistoryService {
     public List<Double> testGetOpenPricesRange() {
         List<Double> openPricesList = new ArrayList<>();
         for (RateInfoRecord record : ResponseService
-                .getChartRangeResponse("EURUSD", PERIOD_CODE.PERIOD_M1, 1594591200000L, 1595016000000L, 0L).getRateInfos()) {
+                .getChartRangeResponse("EURUSD", PERIOD_CODE.PERIOD_M1, 1592604000000L, 1595016000000L, 0L).getRateInfos()) {
             openPricesList.add(record.getOpen());
         }
         return openPricesList;
@@ -73,7 +72,7 @@ public class HistoryServiceImpl implements HistoryService {
     public List<Long> testGetPricesTimeRange() {
         List<Long> pricesTimeList = new ArrayList<>();
         for (RateInfoRecord record : ResponseService
-                .getChartRangeResponse("EURUSD", PERIOD_CODE.PERIOD_M1, 1594591200000L, 1595016000000L, 0L).getRateInfos()) {
+                .getChartRangeResponse("EURUSD", PERIOD_CODE.PERIOD_M1, 1592604000000L, 1595016000000L, 0L).getRateInfos()) {
             pricesTimeList.add(record.getCtm());
         }
         return pricesTimeList;

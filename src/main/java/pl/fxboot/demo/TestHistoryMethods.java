@@ -11,18 +11,18 @@ public class TestHistoryMethods {
         String symbol = "DE30";
         FindServiceImpl findService = new FindServiceImpl();
         HistoryServiceImpl historyService = new HistoryServiceImpl();
-//-------------------------------Tests--------------------------------------------------------------
+
         System.out.println(historyService
-                .getTickPricesRecord(findService.findSymbolsByCategory("ind"),1594969800000L));//pass
+                .getTickPricesRecord(findService.findSymbolsByCategory("ind"),1594969800000L));
 
         Integer size = historyService
                 .getOpenPricesRange(symbol,PERIOD_M1,1594969800000L,1595016000000L,0L).values().size();
-        System.out.println(size);//pass
+        System.out.println(size);
 
-        System.out.println(historyService.testGetPricesTimeRange());//pass
+        System.out.println(historyService.testGetPricesTimeRange());
 
         System.out.println(historyService
-                .getOpenPricesRangeFormattedTime(symbol, PERIOD_M1, 1594969800000L, 1595016000000L, 0L));//pass
+                .getOpenPricesRangeFormattedTime(symbol, PERIOD_M1, 1594969800000L, 1595016000000L, 0L));
     }
 }
 

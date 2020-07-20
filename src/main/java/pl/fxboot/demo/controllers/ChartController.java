@@ -6,16 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.fxboot.demo.service.DataServiceImpl;
 import pl.fxboot.demo.service.HistoryServiceImpl;
-import pl.fxboot.demo.service.interfaces.DataService;
-
-
-import static pro.xstore.api.message.codes.PERIOD_CODE.PERIOD_M1;
 
 @Controller
 public class ChartController {
 
-    private HistoryServiceImpl historyService;
-    private DataServiceImpl dataService;
+    private final HistoryServiceImpl historyService;
+    private final DataServiceImpl dataService;
 
 
     @Autowired

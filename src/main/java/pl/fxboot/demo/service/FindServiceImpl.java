@@ -45,7 +45,6 @@ public class FindServiceImpl implements FindService {
 
     public List<String> findSymbolsByGroup(String group) {
         List<String> groupList = new ArrayList<>();
-        group = group.toUpperCase();
         for (SymbolRecord record : ResponseService.getAllSymbolsResponse().getSymbolRecords()) {
             if (record.getGroupName().equals(group)) {
                 groupList.add(record.getSymbol());

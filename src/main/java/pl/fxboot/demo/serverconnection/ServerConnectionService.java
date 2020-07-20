@@ -13,16 +13,17 @@ import pro.xstore.api.sync.ServerData;
 import pro.xstore.api.sync.SyncAPIConnector;
 import java.io.IOException;
 
+
 @Component
 public class ServerConnectionService {
     private ServerConnectionModel authModel;
-    SyncAPIConnector connector;
+    private SyncAPIConnector connector;
 
     public ServerConnectionService() {
         authModel = new ServerConnectionModel();
         connector = authModel.getConnector();
-        authModel.setLogin(11295105L);
-        authModel.setPassword("S2rtttsal");
+        authModel.setLogin(11312369L);
+        authModel.setPassword("I1010011010");
 
         try {
             authModel.setConnector(new SyncAPIConnector(ServerData.ServerEnum.DEMO));

@@ -11,6 +11,7 @@ import pro.xstore.api.message.response.*;
 import pro.xstore.api.streaming.StreamingListener;
 
 import java.util.List;
+
 @Component
 public class ResponseService {
 
@@ -18,7 +19,7 @@ public class ResponseService {
     private static TickPricesResponse tickPricesResponse;
     private static SymbolResponse symbolResponse;
     private static AllSymbolsResponse allSymbolsResponse;
-    private static ServerConnectionService service = new ServerConnectionService();
+    private static final ServerConnectionService service = new ServerConnectionService();
 
     public static ChartResponse getChartRangeResponse(String symbol, PERIOD_CODE code, Long start, Long end, Long ticks) {
         try {

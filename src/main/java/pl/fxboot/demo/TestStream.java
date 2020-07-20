@@ -11,17 +11,15 @@ public class TestStream {
         TestStream test = new TestStream();
         String testSymbol = "GOLD";
 
+        //test.getMassiveStreamData();
 
-        //-----------Tests----------------------------------------------------------------------------------------
-        test.getMassiveStreamData();//pass
+        streamDataServiceImpl.getStreamAskPrice(testSymbol);
 
-        streamDataServiceImpl.getStreamAskPrice(testSymbol);//pass
+        streamDataServiceImpl.getStreamBidPrice(testSymbol);
 
-        streamDataServiceImpl.getStreamBidPrice(testSymbol);//pass
+        streamDataServiceImpl.getSymbolTimestamp(testSymbol);
 
-        streamDataServiceImpl.getSymbolTimestamp(testSymbol);//pass
-
-        streamDataServiceImpl.getSymbolTimestampFormatted(testSymbol);//pass
+        streamDataServiceImpl.getSymbolTimestampFormatted(testSymbol);;
     }
 
     //auxiliary method
