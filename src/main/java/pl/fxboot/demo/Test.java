@@ -11,6 +11,7 @@ public class Test {
         String testSymbol = "DE30";
 
 //-------------------------------Tests--------------------------------------------------------------
+        // bulszit - testy pisze się używając frameworków dedykowanych do tego.
         System.out.println("Ask -> " + dataServiceImpl.getSymbolName(testSymbol));//pass
 
         System.out.println("Ask -> " + dataServiceImpl.getAskPrice(testSymbol));//pass
